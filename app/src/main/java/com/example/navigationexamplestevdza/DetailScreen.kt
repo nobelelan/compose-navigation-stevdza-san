@@ -38,9 +38,3 @@ fun DetailScreen(
         )
     }
 }
-
-//@Composable
-//@Preview(showBackground = true)
-//fun DetailScreenPreview() {
-//    DetailScreen(navController = rememberNavController())
-//}

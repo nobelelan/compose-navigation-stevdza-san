@@ -25,7 +25,10 @@ fun HomeScreen(
         Text(
             modifier = Modifier
                 .clickable {
-                           navController.navigate(route = Screen.Detail.route)
+                           navController.navigate(route = Screen.Detail.passNameAndId(
+                               id = 10,
+                               name = "NObel ELna"
+                           ))
                 },
             text = "Home",
             color = MaterialTheme.colorScheme.primary,
@@ -34,11 +37,3 @@ fun HomeScreen(
         )
     }
 }
-
-//@Composable
-//@Preview(showBackground = true)
-//fun HomeScreenPreview() {
-//    HomeScreen(
-//        navController = rememberNavController()
-//    )
-//}
