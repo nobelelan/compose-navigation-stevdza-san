@@ -1,7 +1,9 @@
 package com.example.navigationexamplestevdza
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -25,13 +27,18 @@ fun SetupNavGraph(navController: NavHostController) {
             arguments = listOf(
                 navArgument(DETAIL_ARGUMENT_KEY) {
                     type = NavType.IntType
+//                    User defaultValue or Nullable in case of optional arguments
+                    defaultValue = 0
+//                    nullable = true
                 },
                 navArgument(DETAIL_ARGUMENT_KEY2){
                     type = NavType.StringType
-                })
+                    defaultValue = "No Name"
+                }
+            )
         ) {
-            Log.d("args", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
-            Log.d("args", it.arguments?.getString(DETAIL_ARGUMENT_KEY2).toString())
+            Log.d("Args", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
+            Log.d("Args", it.arguments?.getString(DETAIL_ARGUMENT_KEY2).toString())
             DetailScreen(navController = navController)
         }
     }

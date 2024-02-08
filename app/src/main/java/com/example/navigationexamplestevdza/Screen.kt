@@ -5,16 +5,16 @@ const val DETAIL_ARGUMENT_KEY2 = "name"
 
 sealed class Screen(val route: String) {
     object Home: Screen(route = "home_screen")
-    object Detail: Screen(route = "detail_screen/{$DETAIL_ARGUMENT_KEY}/{$DETAIL_ARGUMENT_KEY2}"){
-//        fun passId(id: Int): String{
-//            return this.route.replace(oldValue = "{$DETAIL_ARGUMENT_KEY}", newValue = id.toString())
+    object Detail: Screen(route = "detail_screen?id={id}&name={name}"){
+//        fun passId(id: Int = 0): String{
+//            return "detail_screen?id=$id"
 //        }
 
         fun passNameAndId(
-            id: Int,
-            name: String
+            id: Int = 0,
+            name: String = "Stevdza-San"
         ): String{
-            return "detail_screen/$id/$name"
+            return "detail_screen?id=$id&name=$name"
         }
     }
 }
