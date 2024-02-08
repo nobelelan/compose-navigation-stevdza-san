@@ -1,4 +1,4 @@
-package com.example.navigationexamplestevdza
+package com.example.navigationexamplestevdza.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -9,12 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.example.navigationexamplestevdza.navigation.Screen
 
 @Composable
-fun HomeScreen(
+fun DetailScreen(
     navController: NavController
 ) {
     Box(
@@ -25,13 +24,13 @@ fun HomeScreen(
         Text(
             modifier = Modifier
                 .clickable {
-                           navController.navigate(route = Screen.Detail.passNameAndId(
-                               // overriding default values
-                               id = 14,
-                               name = "Harry Potter"
-                           ))
+                    navController.navigate(Screen.Home.route){
+                        popUpTo(Screen.Home.route){
+                            inclusive = true
+                        }
+                    }
                 },
-            text = "Home",
+            text = "Detail",
             color = MaterialTheme.colorScheme.primary,
             fontSize = MaterialTheme.typography.bodyMedium.fontSize,
             fontWeight = FontWeight.Bold

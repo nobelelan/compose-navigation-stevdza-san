@@ -1,21 +1,26 @@
-package com.example.navigationexamplestevdza
+package com.example.navigationexamplestevdza.navigation.nav_graph
 
 import android.util.Log
-import android.widget.Toast
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.navigation.navigation
+import com.example.navigationexamplestevdza.navigation.DETAIL_ARGUMENT_KEY
+import com.example.navigationexamplestevdza.navigation.DETAIL_ARGUMENT_KEY2
+import com.example.navigationexamplestevdza.navigation.HOME_ROUTE
+import com.example.navigationexamplestevdza.navigation.Screen
+import com.example.navigationexamplestevdza.screens.DetailScreen
+import com.example.navigationexamplestevdza.screens.HomeScreen
 
-@Composable
-fun SetupNavGraph(navController: NavHostController) {
-    NavHost(
-        navController = navController,
-        startDestination = Screen.Home.route
-    ) {
+fun NavGraphBuilder.homeNavGraph(
+    navController: NavController
+){
+    navigation(
+        startDestination = Screen.Home.route,
+        route = HOME_ROUTE
+    ){
         composable(
             route = Screen.Home.route
         ) {
@@ -42,5 +47,4 @@ fun SetupNavGraph(navController: NavHostController) {
             DetailScreen(navController = navController)
         }
     }
-
 }
